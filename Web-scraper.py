@@ -10,7 +10,7 @@ import keyboard
 def main(y):
     global data_list,driver
     data_dic = {}
-    url = f"https... url --> eportfolio/{y}/profiles"
+    url = f"https://Redacted/eportfolio/{y}/profiles"
     driver.get(url)
     
     #imputs passwword only at the start
@@ -52,7 +52,7 @@ def rated(y, soup):
         try:
             rate = soup.find('div', attrs={'id': 'message'})
             if rate.find('h2').text == "You have been rate limited":
-                url = f'https... url --> eportfolio/{y}/profiles'#eportfolio profiles = student/teacher
+                url = f'https://Redacted/eportfolio/{y}/profiles'#eportfolio profiles = student/teacher
                 driver.get(url)
                 soup = BeautifulSoup(driver.page_source, 'html.parser')
             else:
@@ -71,7 +71,7 @@ def name(y,data_dic,soup):
     except:
         try:
             #if we couldn't get the name, go to the user search
-            url = f"https... url --> /search/user/{y}"#search user = parent 
+            url = f"https://Redacted/search/user/{y}"#search user = parent 
             driver.get(url)
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             while True:
@@ -79,7 +79,7 @@ def name(y,data_dic,soup):
                 try:
                     rate = soup.find('div', attrs={'id': 'message'})
                     if rate.find('h2').text == "You have been rate limited":
-                        url = f'https... url --> /search/user/{y}'
+                        url = f'https://Redacted/search/user/{y}'
                         driver.get(url)
                         soup = BeautifulSoup(driver.page_source, 'html.parser')
                 except:
